@@ -19,6 +19,9 @@
 		9E34EC01242D5841002D5D32 /* CTTManufacturerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34EC00242D5841002D5D32 /* CTTManufacturerController.m */; };
 		9E34EC04242D5DB6002D5D32 /* CTTMakeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34EC03242D5DB6002D5D32 /* CTTMakeController.m */; };
 		9E34EC07242D60A6002D5D32 /* CTTModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E34EC06242D60A6002D5D32 /* CTTModelController.m */; };
+		9E34EC0A242D6790002D5D32 /* ManufacturersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34EC09242D6790002D5D32 /* ManufacturersTableViewController.swift */; };
+		9E34EC0C242D67A6002D5D32 /* MakesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34EC0B242D67A6002D5D32 /* MakesTableViewController.swift */; };
+		9E34EC0E242D67B8002D5D32 /* ModelsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E34EC0D242D67B8002D5D32 /* ModelsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,10 @@
 		9E34EC03242D5DB6002D5D32 /* CTTMakeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTTMakeController.m; sourceTree = "<group>"; };
 		9E34EC05242D60A6002D5D32 /* CTTModelController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CTTModelController.h; sourceTree = "<group>"; };
 		9E34EC06242D60A6002D5D32 /* CTTModelController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CTTModelController.m; sourceTree = "<group>"; };
+		9E34EC08242D6790002D5D32 /* CarListObjC-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarListObjC-Bridging-Header.h"; sourceTree = "<group>"; };
+		9E34EC09242D6790002D5D32 /* ManufacturersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManufacturersTableViewController.swift; sourceTree = "<group>"; };
+		9E34EC0B242D67A6002D5D32 /* MakesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakesTableViewController.swift; sourceTree = "<group>"; };
+		9E34EC0D242D67B8002D5D32 /* ModelsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +139,10 @@
 		9E34EBF1242D4B60002D5D32 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				9E34EC09242D6790002D5D32 /* ManufacturersTableViewController.swift */,
+				9E34EC0B242D67A6002D5D32 /* MakesTableViewController.swift */,
+				9E34EC0D242D67B8002D5D32 /* ModelsTableViewController.swift */,
+				9E34EC08242D6790002D5D32 /* CarListObjC-Bridging-Header.h */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -181,6 +192,7 @@
 				TargetAttributes = {
 					9E34EBCF242D4AAB002D5D32 = {
 						CreatedOnToolsVersion = 11.4;
+						LastSwiftMigration = 1140;
 					};
 				};
 			};
@@ -222,8 +234,11 @@
 			files = (
 				9E34EBD5242D4AAB002D5D32 /* AppDelegate.m in Sources */,
 				9E34EBF8242D4C67002D5D32 /* CTTModel.m in Sources */,
+				9E34EC0A242D6790002D5D32 /* ManufacturersTableViewController.swift in Sources */,
 				9E34EBFE242D53FD002D5D32 /* CTTManufacturer.m in Sources */,
 				9E34EC04242D5DB6002D5D32 /* CTTMakeController.m in Sources */,
+				9E34EC0E242D67B8002D5D32 /* ModelsTableViewController.swift in Sources */,
+				9E34EC0C242D67A6002D5D32 /* MakesTableViewController.swift in Sources */,
 				9E34EBF5242D4C5E002D5D32 /* CTTMake.m in Sources */,
 				9E34EBE6242D4AAE002D5D32 /* main.m in Sources */,
 				9E34EC07242D60A6002D5D32 /* CTTModelController.m in Sources */,
@@ -368,6 +383,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FL3UYWHSVP;
 				INFOPLIST_FILE = CarListObjC/Resources/Info.plist;
@@ -377,6 +393,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gottfredson.CarListObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CarListObjC/Controllers/ViewControllers/CarListObjC-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -385,6 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FL3UYWHSVP;
 				INFOPLIST_FILE = CarListObjC/Resources/Info.plist;
@@ -394,6 +414,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Gottfredson.CarListObjC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "CarListObjC/Controllers/ViewControllers/CarListObjC-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

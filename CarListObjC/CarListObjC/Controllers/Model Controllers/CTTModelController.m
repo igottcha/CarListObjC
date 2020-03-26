@@ -16,7 +16,7 @@ static NSString *const queryFormatKey = @"json";
 
 @implementation CTTModelController
 
-- (void)fetchModels:(NSInteger)makeID completion:(void (^)(NSArray<CTTModel *> *))completion
++ (void)fetchModels:(NSInteger)makeID completion:(void (^)(NSArray<CTTModel *> *))completion
 {
     NSString *idString = [NSString stringWithFormat:@"%ld",(long)makeID];
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
@@ -44,7 +44,15 @@ static NSString *const queryFormatKey = @"json";
         }
         
         NSDictionary *topLevelObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        NSArray<CTTModel *> *models = topLevelObject[@"Results"];
+        NSArray<NSDictionary *> *secondLevelObject = topLevelObject[@"Results"];
+        NSMutableArray *models = [NSMutableArray new];
+        
+        for (NSDictionary *modelDictionary in secondLevelObject)
+        {
+            CTTModel *model = [[CTTModel alloc] initWithDictionary:modelDictionary];
+            [models addObject:model];
+        }
+        
         completion(models);
         
     }] resume];

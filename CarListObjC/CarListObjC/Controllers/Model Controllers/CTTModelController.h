@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CTTModelController : NSObject
 
--(void)fetchModels: (NSInteger)makeID completion: (void(^)(NSArray<CTTModel *> *))completion;
++(void)fetchModels: (NSInteger)makeID completion: (void(^)(NSArray<CTTModel *> *))completion;
 
 @end
 

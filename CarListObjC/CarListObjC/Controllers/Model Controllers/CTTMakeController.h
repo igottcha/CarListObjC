@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface CTTMakeController : NSObject
 
--(void)fetchMakes: (NSInteger)mfrID completion: (void(^) (NSArray<CTTMake *> *))completion;
++(void)fetchMakes: (NSInteger)mfrID completion: (void(^) (NSArray<CTTMake *> *))completion;
 
 @end
 

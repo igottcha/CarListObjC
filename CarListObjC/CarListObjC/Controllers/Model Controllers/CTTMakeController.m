@@ -16,7 +16,7 @@ static NSString *const queryFormatKey = @"json";
 
 @implementation CTTMakeController
 
-- (void)fetchMakes:(NSInteger)mfrID completion:(void (^)(NSArray<CTTMake *> *))completion
++ (void)fetchMakes:(NSInteger)mfrID completion:(void (^)(NSArray<CTTMake *> *))completion
 {
     NSString *idString = [NSString stringWithFormat:@"%ld",(long)mfrID];
     NSURL *baseURL = [NSURL URLWithString:baseURLString];
@@ -44,7 +44,15 @@ static NSString *const queryFormatKey = @"json";
         }
         
         NSDictionary *topLevelObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        NSArray<CTTMake *> *makes = topLevelObject[@"Results"];
+        NSArray<NSDictionary *> *secondLevelOjbects = topLevelObject[@"Results"];
+        NSMutableArray *makes = [NSMutableArray new];
+        
+        for (NSDictionary *makeDictionary in secondLevelOjbects)
+        {
+            CTTMake *make = [[CTTMake alloc] initWithDictionary:makeDictionary];
+            [makes addObject:make];
+        }
+        
         completion(makes);
         
     }] resume];

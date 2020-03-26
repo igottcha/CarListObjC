@@ -43,7 +43,15 @@ static NSString *const queryFormatKey = @"json";
         }
         
         NSDictionary *topLevelObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-        NSArray<CTTManufacturer *> *manufacturers = topLevelObject[@"Results"];
+        NSArray<NSDictionary *> *secondLevelObject = topLevelObject[@"Results"];
+        NSMutableArray *manufacturers = [NSMutableArray new];
+        
+        for (NSDictionary *mfrDictionary in secondLevelObject)
+        {
+            CTTManufacturer *mfr = [[CTTManufacturer alloc] initWithDictionary:mfrDictionary];
+            [manufacturers addObject:mfr];
+        }
+        
         completion(manufacturers);
         
     }] resume];
